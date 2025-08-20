@@ -160,15 +160,15 @@ export function AppSidebar() {
                     {section.items.map((item) => (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild>
-                          <NavLink
-                            to={item.url}
-                            className={({ isActive }) =>
-                              `flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
-                                isActive
-                                  ? "bg-primary text-primary-foreground font-medium"
-                                  : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
-                              }`
-                            }
+                            <NavLink
+                              to={item.url}
+                              className={({ isActive }) =>
+                                `flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
+                                  isActive
+                                    ? "bg-primary text-primary-foreground font-medium"
+                                    : "hover:bg-muted/50 text-sidebar-foreground hover:text-primary"
+                                }`
+                              }
                           >
                             <item.icon className="w-4 h-4 flex-shrink-0" />
                             {!collapsed && <span>{item.title}</span>}

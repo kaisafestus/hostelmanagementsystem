@@ -129,6 +129,183 @@ export type Database = {
           },
         ]
       }
+      emergency_contacts: {
+        Row: {
+          created_at: string
+          department: string | null
+          email: string | null
+          id: string
+          is_available_24_7: boolean | null
+          name: string
+          phone: string
+          position: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          department?: string | null
+          email?: string | null
+          id?: string
+          is_available_24_7?: boolean | null
+          name: string
+          phone: string
+          position: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          department?: string | null
+          email?: string | null
+          id?: string
+          is_available_24_7?: boolean | null
+          name?: string
+          phone?: string
+          position?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      internet_usage: {
+        Row: {
+          bandwidth_limit_mb: number | null
+          created_at: string
+          data_consumed_mb: number | null
+          id: string
+          room_id: string
+          student_id: string
+          usage_date: string
+        }
+        Insert: {
+          bandwidth_limit_mb?: number | null
+          created_at?: string
+          data_consumed_mb?: number | null
+          id?: string
+          room_id: string
+          student_id: string
+          usage_date: string
+        }
+        Update: {
+          bandwidth_limit_mb?: number | null
+          created_at?: string
+          data_consumed_mb?: number | null
+          id?: string
+          room_id?: string
+          student_id?: string
+          usage_date?: string
+        }
+        Relationships: []
+      }
+      maintenance_requests: {
+        Row: {
+          assigned_to: string | null
+          completed_at: string | null
+          created_at: string
+          description: string
+          id: string
+          priority: string | null
+          room_id: string
+          status: string | null
+          student_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          completed_at?: string | null
+          created_at?: string
+          description: string
+          id?: string
+          priority?: string | null
+          room_id: string
+          status?: string | null
+          student_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          completed_at?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          priority?: string | null
+          room_id?: string
+          status?: string | null
+          student_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      meal_plans: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean | null
+          meals_included: Json | null
+          name: string
+          price_per_month: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          meals_included?: Json | null
+          name: string
+          price_per_month: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          meals_included?: Json | null
+          name?: string
+          price_per_month?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      notices: {
+        Row: {
+          content: string
+          created_at: string
+          created_by: string
+          expires_at: string | null
+          id: string
+          is_active: boolean | null
+          title: string
+          type: string | null
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          created_by: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          title: string
+          type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          created_by?: string
+          expires_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          title?: string
+          type?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       payments: {
         Row: {
           academic_year: string
@@ -378,6 +555,78 @@ export type Database = {
         }
         Relationships: []
       }
+      staff: {
+        Row: {
+          contact_info: Json | null
+          created_at: string
+          department: string | null
+          employee_id: string
+          hire_date: string | null
+          id: string
+          position: string
+          salary: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          contact_info?: Json | null
+          created_at?: string
+          department?: string | null
+          employee_id: string
+          hire_date?: string | null
+          id?: string
+          position: string
+          salary?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          contact_info?: Json | null
+          created_at?: string
+          department?: string | null
+          employee_id?: string
+          hire_date?: string | null
+          id?: string
+          position?: string
+          salary?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      student_meal_subscriptions: {
+        Row: {
+          created_at: string
+          end_date: string
+          id: string
+          meal_plan_id: string
+          start_date: string
+          status: string | null
+          student_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          end_date: string
+          id?: string
+          meal_plan_id: string
+          start_date: string
+          status?: string | null
+          student_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          end_date?: string
+          id?: string
+          meal_plan_id?: string
+          start_date?: string
+          status?: string | null
+          student_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       students: {
         Row: {
           academic_year: string | null
@@ -455,6 +704,48 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["user_role"]
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      visitor_logs: {
+        Row: {
+          approved_by: string | null
+          check_in_time: string
+          check_out_time: string | null
+          created_at: string
+          id: string
+          purpose: string | null
+          status: string | null
+          student_id: string
+          updated_at: string
+          visitor_contact: string | null
+          visitor_name: string
+        }
+        Insert: {
+          approved_by?: string | null
+          check_in_time?: string
+          check_out_time?: string | null
+          created_at?: string
+          id?: string
+          purpose?: string | null
+          status?: string | null
+          student_id: string
+          updated_at?: string
+          visitor_contact?: string | null
+          visitor_name: string
+        }
+        Update: {
+          approved_by?: string | null
+          check_in_time?: string
+          check_out_time?: string | null
+          created_at?: string
+          id?: string
+          purpose?: string | null
+          status?: string | null
+          student_id?: string
+          updated_at?: string
+          visitor_contact?: string | null
+          visitor_name?: string
         }
         Relationships: []
       }
